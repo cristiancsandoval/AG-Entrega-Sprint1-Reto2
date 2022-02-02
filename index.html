@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+  <!--Importación de fuente-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
+
+  <!--Vinculación documento de estilos-->
+  <link rel="stylesheet" href="style/css/style.css">
+  
+  <title>Reto 2 | Calculator app</title>
+
+</head>
+<body id="body">
+
+  <section class="calculator">
+
+    <div class="banner">
+
+      <h1>calc</h1>
+
+      <h2 class="theme-text">theme</h2>
+
+      <div class="theme">
+
+        <div class="theme-numbers">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+        </div>
+
+        <div class="theme-buttons">
+          <button id="tb-1" onclick="cambiarTema('tema1')"></button>
+          <button id="tb-2" onclick="cambiarTema('tema2')"></button>
+          <button id="tb-3" onclick="cambiarTema('tema3')"></button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel">
+
+      <p class="panel-text" id="panel-text">0</p>
+
+    </div>
+
+    <div class="buttons" id="buttons">
+
+      <input type="button" value="7" class="numb">
+      <input type="button" value="8" class="numb">
+      <input type="button" value="9" class="numb">
+      <input type="button" value="del" class="funct" id="del">
+      <input type="button" value="4" class="numb">
+      <input type="button" value="5" class="numb">
+      <input type="button" value="6" class="numb">
+      <input type="button" value="+" class="oper" id="sum">
+      <input type="button" value="1" class="numb">
+      <input type="button" value="2" class="numb">
+      <input type="button" value="3" class="numb">
+      <input type="button" value="-" class="oper" id="subt">
+      <input type="button" value="." class="numb" id="dec">
+      <input type="button" value="0" class="numb">
+      <input type="button" value="/" class="oper" id="divide">
+      <input type="button" value="x" class="oper" id="mult">
+      <input type="button" value="reset" class="funct" id="reset">
+      <input type="button" value="=" class="equal" id="equal">
+
+    </div>
+
+  </section>
+
+  <!--Scripts-->
+  <script src="scripts/temas.js"></script>
+  <script src="scripts/calculadora.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,260 @@
+@import 'variables.scss';
+
+//Formateo de estilos
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+span, h1, h2, p {
+    font-weight: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    padding: 0;
+    margin: 0;
+}
+
+//Asignación de estilos
+body{
+    
+    &.tema1{
+        background-color: map-get($tema-1, "bg-main" );
+    }
+    &.tema2{
+        background-color: map-get($tema-2, "bg-main" );
+    }
+    &.tema3{
+        background-color: map-get($tema-3, "bg-main" );
+    }
+
+    transition: all 0.3s ease-in-out;
+
+}
+
+.calculator{
+
+    width: $ancho-calculadora;
+    padding-top: 2%;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .banner{
+
+        width: 100%;
+        padding: $distancia-general;
+        margin: $distancia-general;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-end;
+
+        h1{
+
+            font-family: $fuente;
+            font-size: $tam-fuente-m;
+            text-align: left;
+            flex-grow: 1;
+
+            @include lista-colores(color, "txt2");
+
+        }
+
+        .theme-text{
+
+            font-family: $fuente;
+            font-size: $tam-fuente-p;
+            text-transform: uppercase;
+            margin: 0 10px;
+
+            @include lista-colores(color, "txt2");
+
+        }
+
+        .theme{
+
+            width: $ancho-calculadora*0.13;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+
+            .theme-numbers, .theme-buttons{
+
+                width: 100%;
+                
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+
+            }
+
+            .theme-numbers{
+
+                font-family: $fuente;
+                font-size: $tam-fuente-p;
+
+                @include lista-colores(color, "txt2");
+
+            }
+
+            .theme-buttons{
+
+                width: 100%;
+                height: 15px;
+                border-radius: 10px;
+
+                @include lista-colores(background-color, "bg-toggle");
+
+                button{
+
+                    width: 13px;
+                    height: 13px;
+                    border-radius: 1000px;
+                    border: none;
+
+                    @include lista-colores(background-color, "k2-bg" );
+
+                    &.hide{
+                        opacity: 0%;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .panel{
+
+        width: 100%;
+        border-radius: 10px;
+        margin: $distancia-general;
+        padding: $distancia-general;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+
+        @include lista-colores(background-color, "bg-screen");
+
+        .panel-text{
+
+            font-family: $fuente;
+            font-size: $tam-fuente*1.15;
+            margin: $distancia-general;
+            padding: 5px 20px;
+            text-align: right;
+            width: 100%;
+            height: 100%;
+
+            @include lista-colores(color, "txt2");
+        
+        }
+
+    }
+
+    .buttons{
+
+        width: 100%;
+        padding: 20px;
+        margin: $distancia-general;
+        border-radius: 10px;
+        
+        @include lista-colores(background-color, "bg-toggle");
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+
+        input{
+
+            width: 20%;
+            height: 60px;
+            margin: 10px;
+            flex-grow: 1;
+
+            border: none;
+            border-radius: 10px;
+
+            font-family: $fuente;
+            font-size: $tam-fuente;
+
+        }
+
+        .numb, .oper{
+
+            @include lista-colores(background-color, "k3-bg");
+            @include shadow("k3-shadow");
+            @include lista-colores(color, "txt2");
+            body.tema1 &{
+                color: map-get($tema-1 , "txt1");
+            }
+
+        }
+
+        .funct{
+
+            text-transform: uppercase;
+            font-size: $tam-fuente-m;
+
+            @include lista-colores(background-color, "k1-bg");
+            @include shadow("k1-shadow");
+            @include lista-colores(color, "txt1");
+            body.tema1 &{
+                color: map-get($tema-1 , "txt2");
+            }
+
+        }
+
+        .equal{
+
+            @include lista-colores(background-color, "k2-bg");
+            @include shadow("k2-shadow");
+            body.tema1 &{
+                color: map-get($tema-1 , "txt2");
+            }
+            body.tema2 &{
+                color: map-get($tema-2 , "txt1");
+            }body.tema3 &{
+                color: map-get($tema-3 , "txt3");
+            }
+
+        }
+
+    }
+
+}
+
+//Media-query
+@media only screen and (max-width:$ancho-calculadora) {
+
+    .calculator{
+        
+        width: 95%;
+
+        .buttons{
+
+            padding: 10px 3%;
+
+            input{
+
+                margin: 2%;
+
+            }
+        }
+    
+    }
+
+}

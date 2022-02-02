@@ -1,0 +1,101 @@
+//DOCUMENTO DE VARIABLES SASS//
+
+//Variables de dimensión
+$ancho-calculadora: 490px;
+$tam-fuente: 32px;
+$tam-fuente-m: $tam-fuente*0.9;
+$tam-fuente-p: $tam-fuente-m*0.4;
+$distancia-general: 10px 0;
+
+//Fuente
+$fuente: 'Spartan', sans-serif;
+
+//Colores - organizados en mapas según el tema
+$tema-1:(
+
+    //Fondos
+    "bg-main": hsl(222, 26%, 31%),
+    "bg-toggle": hsl(223, 31%, 20%),
+    "bg-screen": hsl(224, 36%, 15%),
+    //Llaves
+    "k1-bg": hsl(225, 21%, 49%),
+    "k1-shadow": hsl(224, 28%, 35%),
+    "k2-bg": hsl(6, 63%, 50%),
+    "k2-shadow": hsl(6, 70%, 34%),
+    "k3-bg": hsl(30, 25%, 89%),
+    "k3-shadow": hsl(28, 16%, 65%),
+    //Texto
+    "txt1": hsl(221, 14%, 31%),
+    "txt2": hsl(0, 0, 100%)
+
+);
+$tema-2:(
+
+    //Fondos
+    "bg-main": hsl(0, 0%, 90%),
+    "bg-toggle": hsl(0, 5%, 81%),
+    "bg-screen": hsl(0, 0%, 93%),
+    //Llaves
+    "k1-bg": hsl(185, 42%, 37%),
+    "k1-shadow": hsl(185, 58%, 25%),
+    "k2-bg": hsl(25, 98%, 40%),
+    "k2-shadow": hsl(25, 99%, 27%),
+    "k3-bg": hsl(45, 7%, 89%),
+    "k3-shadow": hsl(35, 11%, 61%),
+    //Texto
+    "txt1": hsl(0, 0, 100%),
+    "txt2": hsl(60, 10%, 19%)
+
+);
+$tema-3:(
+
+    //Fondos
+    "bg-main": hsl(268, 75%, 9%),
+    "bg-toggle": hsl(268, 71%, 12%),
+    "bg-screen": hsl(268, 71%, 12%),
+    //Llaves
+    "k1-bg": hsl(281, 89%, 26%),
+    "k1-shadow": hsl(285, 91%, 52%),
+    "k2-bg": hsl(176, 100%, 44%),
+    "k2-shadow": hsl(177, 92%, 70%),
+    "k3-bg": hsl(268, 47%, 21%),
+    "k3-shadow": hsl(290, 70%, 36%),
+    //Texto
+    "txt1": hsl(0, 0, 100%),
+    "txt2": hsl(52, 100%, 62%),
+    "txt3": hsl(198, 20%, 13%),
+
+);
+
+//Mixins para la adaptación de los colores según el tema
+@mixin lista-colores($propiedad, $valor){
+
+    body.tema1 &{
+        #{$propiedad}: map-get($tema-1 , $valor);
+    }
+    body.tema2 &{
+        #{$propiedad}: map-get($tema-2 , $valor);
+    }
+    body.tema3 &{
+        #{$propiedad}: map-get($tema-3 , $valor);
+    }
+
+    //Animación para el cambio de color
+    transition: all 0.3s ease-in-out;
+
+}
+
+//Mixin para la adaptación de la sombra según el tema
+@mixin shadow($valor){
+
+    body.tema1 &{
+        box-shadow: 0px 5px 0px 0px map-get($tema-1 , $valor);
+    }
+    body.tema2 &{
+        box-shadow: 0px 5px 0px 0px map-get($tema-2 , $valor);
+    }
+    body.tema3 &{
+        box-shadow: 0px 5px 0px 0px map-get($tema-3 , $valor);
+    }
+
+}
